@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOverOverlay : MonoBehaviour
 {
     public GameObject Contents;
+    public GameObject Credits;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +36,15 @@ public class GameOverOverlay : MonoBehaviour
         GameManager.Instance.PlayAgain();
     }
 
-    public void QuitGame()
+    public void ShowCredits()
     {
-        GameManager.Instance.QuitGame();
+        Contents.SetActive(false);
+        Credits.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        Credits.SetActive(false);
+        Contents.SetActive(true);
     }
 }
