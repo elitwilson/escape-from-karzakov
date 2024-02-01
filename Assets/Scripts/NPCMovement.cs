@@ -42,13 +42,14 @@ public class NPCMovement : MonoBehaviour
             case PhaseState.RandomConflag:
                 break;
             case PhaseState.KarzakovConflag:
-                mc.moveSpeed = GameManager.Instance.Player.GetComponent<MovementController>().moveSpeed + 0.5f;
-
                 if (transform.parent.gameObject.name != "Karzakov")
                 {
+                    mc.moveSpeed = GameManager.Instance.Player.GetComponent<MovementController>().moveSpeed + 0.5f;
                     RunFromKarzakov();                    
                 } else
                 {
+                    // THIS IS KARZAKOV
+                    mc.moveSpeed = GameManager.Instance.Player.GetComponent<MovementController>().moveSpeed + 0.75f;
                     // Calculate the vector from B to A
                     Vector2 directionToPlayer = GameManager.Instance.Player.transform.position - gameObject.transform.position;
                     moveDirection = directionToPlayer.normalized;
